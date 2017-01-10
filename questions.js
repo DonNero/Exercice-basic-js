@@ -1,48 +1,64 @@
 
-var getNumber = function() {
-  return 'ecrire votre code ici';
-}
+var getArgument = function(arg) {
+  //return 'Write your code here !';
+  return arg;
+};
 
-var getString = function() {
-  return 'ecrire votre code ici';
-}
+var getSecondArgument = function(arg1, arg2) {
+  return arg2;
+};
 
-var getBoolean = function() {
-  return 'ecrire votre code ici';
-}
+var getArgumentsArray = function(arg1, arg2) {
+  return [arg1, arg2];
+};
 
-var getArray = function() {
-  return 'ecrire votre code ici';
-}
+var getArgumentsSum = function(number1, number2) {
+  return number1+number2;
+};
 
-var getBonjourUppercase = function() {
-  return 'ecrire votre code ici';
-}
+var getArgumentsConcat = function(number1, number2) {
+  return number1+''+number2;
+};
 
-var get123String = function() {
-  return 'ecrire votre code ici';
-}
+var getFirstGreaterThanSecond = function(number1, number2) {
+  return number1 > number2;
+};
 
-var getArrayWithRequiredItems = function() {
-  return 'ecrire votre code ici';
-}
+var getSecondInBetweenFirstAndThird  = function(number1, number2, number3) {
+  return (number1 < number2 && number2 < number3) ||
+  (number1 > number2 && number2 > number3);
+};
 
-var getArrayWith5Numbers = function() {
-  return 'ecrire votre code ici';
-}
+var getFirstName = function(person) {
+  return person.firstName;
+};
 
-var getObjectWithRequiredKeys = function() {
-  return 'ecrire votre code ici';
-}
+var getScoresSum = function(scores) {
+  return scores.reduce( function(acc, n) {
+    return acc + n;
+  }, 0);
+};
 
-var getObjectWithRequiredKeys = function() {
-  return 'ecrire votre code ici';
-}
+var getScoresSum = function(scores) {
+  return scores.reduce( function(acc, n) {
+    return acc + n;
+  }, 0);
+};
 
-var getObjectWithArrayWith5Numbers = function() {
-  return 'ecrire votre code ici';
-}
+var getAgeSum = function(persons) {
+  return persons.reduce( function(acc, item) {
+    return acc + item.age;
+  }, 0);
+};
 
-var getArrayWith3ObjectsWithSpecificFormat = function() {
-  return 'ecrire votre code ici';
-}
+var getNamesArray = function(persons) {
+  return persons.map( function(item) {
+    return item.name;
+  });
+};
+
+var getAllYoungerThan30 = function(persons) {
+  return persons.filter( function(item) {
+    return item.age < 30;
+  });
+};

@@ -1,92 +1,155 @@
 'use strict';
 
 describe('javascript-Basecall', function() {
-  
+
   // la fonction doit retourner un nombre
-  it('return a number', function() {
-    var result = getNumber();
-    expect(result).toEqual(jasmine.any(Number));
-  });
-  
-  // la fonction doit retourner une chaine de caractère
-  it('return a string', function() {
-    var result = getString();
-    expect(result).toEqual(jasmine.any(String));
+  it('return the argument passed as the only parameter', function() {
+    var result = getArgument('bonjour');
+    expect(result).toEqual('bonjour');
   });
 
-  // la fonction doit retourner un booléen
-  it('return a boolean', function() {
-    var result = getBoolean();
-    expect(result).toEqual(jasmine.any(Boolean));
+  it('return the argument passed as the second parameter', function() {
+    var result = getSecondArgument('bonjour', 'tout le monde');
+    expect(result).toEqual('tout le monde');
   });
 
-  // la fonction doit retourner un tableau
-  it('return an array', function() {
-    var result = getArray();
-    expect(result).toEqual(jasmine.any(Array));
+  it('return an array including both passed arguments', function() {
+    var result = getArgumentsArray(302, 404);
+    expect(result.indexOf(302)).toBeGreaterThan(-1);
+    expect(result.indexOf(404)).toBeGreaterThan(-1);
   });
 
-  // la fonction doit retourner BONJOUR sous forme de string
-  it('return boujour and it should be uppercase', function() {
-    var result = getBonjourUppercase();
-    expect(result).toEqual('BONJOUR');
+  it('return the sum of both arguments', function() {
+    var result = getArgumentsSum(302, 404);
+    expect(result).toEqual(706);
   });
 
-  // la fonction doit retourner 123 sous forme de string
-  it('return 123 and it should be a string', function() {
-    var result = get123String();
-    expect(result).toEqual('123');
+  it('return a string that concatenate both arguments', function() {
+    var result = getArgumentsConcat(302, 404);
+    expect(result).toEqual('302404');
   });
 
-  // la fonction doit retourner un tableau avec les 3 elements suivants : foo, bar et buzz
-  // les elements doivent être retournés dans l'ordre où ils sont cités
-  it('return an array with 3 strings : foo, bar and buzz', function() {
-    var result = getArrayWithRequiredItems();
-    expect(result).toEqual(['foo', 'bar', 'buzz']);
+  it('return a string that concatenate both arguments', function() {
+    var result = getArgumentsConcat(302, 404);
+    expect(result).toEqual('302404');
   });
 
-  // la fonction doit retourner un tableau avec 5 nombres
-  it('return an array with 5 numbers', function() {
-    var result = getArrayWith5Numbers();
-    result.map( function(item) {
-      expect(item).toEqual(jasmine.any(Number));
-    });
-    expect(result.length).toEqual(5);
+  it('return true (boolean) if first argument is greater than the second one, otherwise return false', function() {
+    var result = getFirstGreaterThanSecond(302, 404);
+    expect(result).toEqual(false);
+    result = getFirstGreaterThanSecond(404, 404);
+    expect(result).toEqual(false);
+    result = getFirstGreaterThanSecond(404, 302);
+    expect(result).toEqual(true);
   });
 
-  // la fonction doit retourner un objet avec une clé A and une clé B
-  it('return an object with a key A and a key B', function() {
-    var result = getObjectWithRequiredKeys();
-    expect(result.A).not.toBeUndefined();
-    expect(result.B).not.toBeUndefined();
+  it('return true (boolean) if second argument is in between first and third one, otherwise return false', function() {
+
+    var result = getSecondInBetweenFirstAndThird(302, 404, 606);
+    expect(result).toEqual(true);
+
+    result = getSecondInBetweenFirstAndThird(604, 404, 303);
+    expect(result).toEqual(true);
+
+    result = getSecondInBetweenFirstAndThird(404, 404, 303);
+    expect(result).toEqual(false);
+
+    result = getSecondInBetweenFirstAndThird(101, 302, 302);
+    expect(result).toEqual(false);
+
+    result = getSecondInBetweenFirstAndThird(101, 302, 102);
+    expect(result).toEqual(false);
+
+    result = getSecondInBetweenFirstAndThird(404, 302, 401);
+    expect(result).toEqual(false);
+
   });
 
-  // la fonction doit retourner un objet avec une clé A and a key B qui retournent respectivement 'foo' et 'bar'
-  it('return an object with a key A with \'foo\' as value and a key B with \'bar\' as value', function() {
-    var result = getObjectWithRequiredKeys();
-    expect(result.A).toEqual('foo');
-    expect(result.B).toEqual('bar');
+  it('return the person\'s firstName property value', function() {
+
+    var obj = {
+      firstName: 'toto'
+    };
+    var result = getFirstName(obj);
+    expect(result).toEqual(obj.firstName);
+
   });
 
-  // la fonction doit retourner un objet avec une clé A avec comme valeur un tableau de 5 nombres
-  it('return an object with required key A that value is an array with 5 numbers', function() {
-    var result = getObjectWithArrayWith5Numbers();
-    expect(result.A).toEqual(jasmine.any(Array));
+  it('return the sum of all scores', function() {
 
-    result.A.map( function(item) {
-      expect(item).toEqual(jasmine.any(Number));
-    });
-    expect(result.A.length).toEqual(5);
+    var scores = [33, 102, 203, 401, 5, 2, 4, 5, 7, 1, 18];
+    var result = getScoresSum(scores);
+    expect(result).toEqual(781);
+
   });
 
-  // la fonction doit retourner un tableau comprenant 3 objets.
-  // chaque objet doit avoir une clé firstName et une clé lastName
-  it('return an array with 3 objects. Each object have to have a key lastName and a key firstName', function() {
-    var result = getArrayWith3ObjectsWithSpecificFormat();
-    result.map( function(item) {
-      expect(item.firstName).not.toBeUndefined();
-      expect(item.lastName).not.toBeUndefined();
-    });
+  it('return the sum of each person\'age listed in the argument', function() {
+
+    var list = [{
+      name: 'a',
+      age: 27
+    },{
+      name: 'b',
+      age: 18
+    },{
+      name: 'c',
+      age: 32
+    },{
+      name: 'd',
+      age: 33
+    }];
+    var result = getAgeSum(list);
+    expect(result).toEqual(110);
+
+  });
+
+  it('return an array containing all person\'s names', function() {
+
+    var list = [{
+      name: 'a',
+      age: 27
+    },{
+      name: 'b',
+      age: 18
+    },{
+      name: 'c',
+      age: 32
+    },{
+      name: 'd',
+      age: 33
+    }];
+    var result = getNamesArray(list);
+    console.log(result.indexOf('a'));
+    console.log(result.indexOf('b'));
+    console.log(result.indexOf('c'));
+    console.log(result.indexOf('d'));
+    expect(result.indexOf('a')).toBeGreaterThan(-1);
+    expect(result.indexOf('b')).toBeGreaterThan(-1);
+    expect(result.indexOf('c')).toBeGreaterThan(-1);
+    expect(result.indexOf('d')).toBeGreaterThan(-1);
+
+  });
+
+  it('return an array containing all person\'s names', function() {
+
+    var list = [{
+      name: 'a',
+      age: 27
+    },{
+      name: 'b',
+      age: 18
+    },{
+      name: 'c',
+      age: 32
+    },{
+      name: 'd',
+      age: 33
+    }];
+    var result = getAllYoungerThan30(list);
+    expect(result.length).toEqual(2);
+    expect(result[0].age).toBeGreaterThan(-1);
+    expect(result[1].age).toBeGreaterThan(-1);
+
   });
 
 });
