@@ -2,7 +2,7 @@
 
 describe('javascript-Basecall', function() {
 
-  // la fonction doit retourner un nombre
+
   it('return the argument passed as the only parameter', function() {
     var result = getArgument('bonjour');
     expect(result).toEqual('bonjour');
@@ -29,10 +29,6 @@ describe('javascript-Basecall', function() {
     expect(result).toEqual('302404');
   });
 
-  it('return a string that concatenate both arguments', function() {
-    var result = getArgumentsConcat(302, 404);
-    expect(result).toEqual('302404');
-  });
 
   it('return true (boolean) if first argument is greater than the second one, otherwise return false', function() {
     var result = getFirstGreaterThanSecond(302, 404);
@@ -130,7 +126,7 @@ describe('javascript-Basecall', function() {
 
   });
 
-  it('return an array containing all person\'s names', function() {
+  it('return an array containing the person\'s object if they are younger than 30', function() {
 
     var list = [{
       name: 'a',
