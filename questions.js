@@ -1,64 +1,52 @@
 
 var getArgument = function(arg) {
-  //return 'Write your code here !';
-  return arg;
+  return 'Write your code here !';
 };
 
 var getSecondArgument = function(arg1, arg2) {
-  return arg2;
+  return 'Write your code here !';
 };
 
 var getArgumentsArray = function(arg1, arg2) {
-  return [arg1, arg2];
+  return 'Write your code here !';
 };
 
 var getArgumentsSum = function(number1, number2) {
-  return number1+number2;
+  return 'Write your code here !';
 };
 
 var getArgumentsConcat = function(number1, number2) {
-  return number1+''+number2;
+  return 'Write your code here !';
 };
 
 var getFirstGreaterThanSecond = function(number1, number2) {
-  return number1 > number2;
+  return 'Write your code here !';
 };
 
 var getSecondInBetweenFirstAndThird  = function(number1, number2, number3) {
-  return (number1 < number2 && number2 < number3) ||
-  (number1 > number2 && number2 > number3);
+  return 'Write your code here !';
 };
 
 var getFirstName = function(person) {
-  return person.firstName;
+  return 'Write your code here !';
 };
 
 var getScoresSum = function(scores) {
-  return scores.reduce( function(acc, n) {
-    return acc + n;
-  }, 0);
+  return 'Write your code here !';
 };
 
 var getScoresSum = function(scores) {
-  return scores.reduce( function(acc, n) {
-    return acc + n;
-  }, 0);
+  return 'Write your code here !';
 };
 
 var getAgeSum = function(persons) {
-  return persons.reduce( function(acc, item) {
-    return acc + item.age;
-  }, 0);
+  return 'Write your code here !';
 };
 
 var getNamesArray = function(persons) {
-  return persons.map( function(item) {
-    return item.name;
-  });
+  return 'Write your code here !';
 };
 
 var getAllYoungerThan30 = function(persons) {
-  return persons.filter( function(item) {
-    return item.age < 30;
-  });
+  return 'Write your code here !';
 };
